@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architectures of Intelligence</title>
+  <!-- Google Fonts: Cairo (Serif replacement variant used) and IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-noise"></div>
+    <div class="header-inner">
+      <div>
+        <span class="header-label">System Documentation v4.0</span>
+        <h1>Architectures of <em>Intelligence</em></h1>
+        <p class="header-sub">An uncompromising blueprint of artificial neural networks, deep learning systems, and statistical computation methodologies.</p>
+      </div>
+      <div class="header-stat-box">
+        <div class="stat-item">
+          <div class="stat-num">175B</div>
+          <div class="stat-label">MAX PARAMETERS</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">99.4%</div>
+          <div class="stat-label">BENCHMARK ACCURACY</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#core">01 // Core Concepts</a>
+      <a href="#timeline">02 // Timeline</a>
+      <a href="#components">03 // Core Components</a>
+      <a href="#paradigms">04 // Paradigms</a>
+      <a href="#methodology">05 // Methodology</a>
+      <a href="#evolution">06 // Evolution</a>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN LAYOUT ===== -->
+  <main class="page">
+
+    <!-- ===== SECTION: CORE CONCEPTS ===== -->
+    <section id="core">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2>Foundational Definitions</h2>
+      </div>
+
+      <div class="definition-block">
+        <div class="def-panel">
+          <h3>The Biological Inspiration</h3>
+          <p>Artificial systems model themselves after biological networks, optimizing numeric weights through layered nodes to map inputs directly to highly accurate predictive classifications.</p>
+        </div>
+        <div class="def-panel dark">
+          <h3>The Mathematical Reality</h3>
+          <p>Stripped of metaphor, it is pure multidimensional matrix multiplication driven by calculus. Backpropagation calculates loss gradients, moving functions toward global minima.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: TIMELINE ===== -->
+    <section id="timeline">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2>Historical Epochs</h2>
+      </div>
+
+      <div class="timeline-grid">
+        <div class="tl-item">
+          <div class="tl-year">1958</div>
+          <div class="tl-title">The Perceptron</div>
+          <div class="tl-desc">Frank Rosenblatt creates the foundational single-layer network capable of basic linear classification.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1986</div>
+          <div class="tl-title">Backpropagation Popularized</div>
+          <div class="tl-desc">Rumelhart, Hinton, and Williams introduce gradient descent frameworks for multi-layer training.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2012</div>
+          <div class="tl-title">The AlexNet Breakthrough</div>
+          <div class="tl-desc">GPU acceleration meets massive datasets, decimating error rates at the ImageNet competition.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2017</div>
+          <div class="tl-title">Attention Is All You Need</div>
+          <div class="tl-desc">The Transformer architecture drops, removing sequential limits and changing NLP permanently.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: COMPONENTS ===== -->
+    <section id="components">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2>Core Vector Components</h2>
+      </div>
+
+      <div class="comp-grid">
+        <div class="comp-card">
+          <span class="comp-icon">👁️</span>
+          <h3>Convolutional Layers</h3>
+          <p>Uses spatial kernels to extract local spatial features directly from high-dimensional matrix pixels.</p>
+        </div>
+        <div class="comp-card">
+          <span class="comp-icon">⏳</span>
+          <h3>Recurrent Units</h3>
+          <p>Maintains an internal hidden-state vector to process sequential time-series patterns effectively.</p>
+        </div>
+        <div class="comp-card">
+          <span class="comp-icon">🎯</span>
+          <h3>Attention Heads</h3>
+          <p>Dynamically calculates mathematical context weights between distant sequence vector tokens.</p>
+        </div>
+        <div class="comp-card">
+          <span class="comp-icon">⚖️</span>
+          <h3>Loss Functions</h3>
+          <p>Quantifies the error discrepancy between raw target labels and active forward pass predictions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: PARADIGMS ===== -->
+    <section id="paradigms">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2>Architectural Classification</h2>
+      </div>
+
+      <div class="types-table-wrap">
+        <table class="types-table">
+          <thead>
+            <tr>
+              <th>Architecture Class</th>
+              <th>Primary Utility</th>
+              <th>Status Badge</th>
+              <th>Operational Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Feedforward Nets (MLP)</strong></td>
+              <td>Tabular classification & regression tasks</td>
+              <td><span class="type-badge badge-exists">Production</span></td>
+              <td>Low Compute / High Speed</td>
+            </tr>
+            <tr>
+              <td><strong>Generative Adversarial</strong></td>
+              <td>Synthetic image generation & deepfake assets</td>
+              <td><span class="type-badge badge-dev">Active Dev</span></td>
+              <td>Medium Compute / High VRAM</td>
+            </tr>
+            <tr>
+              <td><strong>Quantum Neural Nets</strong></td>
+              <td>Subatomic simulation & complex encryption</td>
+              <td><span class="type-badge badge-theory">Theoretical</span></td>
+              <td>Extreme Cryogenic Compute</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="branches-wrap">
+        <div class="branch-panel">
+          <div class="branch-header">
+            <span class="icon">📈</span>
+            <h3>Supervised Frameworks</h3>
+          </div>
+          <div class="branch-body">
+            <p>Relies completely on curated ground-truth labels mapped to clear features for optimization metrics.</p>
+            <div class="ml-types">
+              <div class="ml-type-item"><span>Linear Regression</span><span>Continuous values</span></div>
+              <div class="ml-type-item"><span>Support Vector Machines</span><span>Hyperplane boundaries</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-panel">
+          <div class="branch-header">
+            <span class="icon">🔮</span>
+            <h3>Unsupervised Frameworks</h3>
+          </div>
+          <div class="branch-body">
+            <p>Analyzes spatial arrays and data structure natively without external human annotation or tags.</p>
+            <div class="ml-types">
+              <div class="ml-type-item"><span>K-Means Clustering</span><span>Centroid grouping</span></div>
+              <div class="ml-type-item"><span>PCA Analysis</span><span>Dimensional reduction</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: METHODOLOGY ===== -->
+    <section id="methodology">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2>The Training Pipeline</h2>
+      </div>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <div class="step-title">Ingestion & Sanitation</div>
+            <div class="step-desc">Raw logs are ingested, deduplicated, scaled down to normalized structures, and stripped of extreme outlier noise variables.</div>
+          </div>
+          <div class="step-tag">Data Prep</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <div class="step-title">The Forward Execution Pass</div>
+            <div class="step-desc">Matrices multiply down active pathways through hidden layers to formulate an initial hypothesis tensor output.</div>
+          </div>
+          <div class="step-tag">Execution</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <div class="step-title">The Backward Derivative Wave</div>
+            <div class="step-desc">Error calculations trigger chain-rule partial derivatives backwards to update individual layer weights.</div>
+          </div>
+          <div class="step-tag">Optimization</div>
+        </div>
+      </div>
+
+      <div class="models-grid">
+        <div class="model-card">
+          <div class="model-name">Stochastic GD</div>
+          <div class="model-desc">Updates node weights sample by sample, introducing high variance but escaping shallow plateaus.</div>
+          <div class="model-uses">
+            <span class="use-tag">Low-Memory</span>
+            <span class="use-tag">Online-Learning</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-name">Adam Optimizer</div>
+          <div class="model-desc">Combines adaptive learning rates with momentum parameters for faster total loss convergence.</div>
+          <div class="model-uses">
+            <span class="use-tag">Standard</span>
+            <span class="use-tag">Deep-Nets</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-name">RMSprop</div>
+          <div class="model-desc">Restricts horizontal oscillations by keeping track of moving averages of squared gradients.</div>
+          <div class="model-uses">
+            <span class="use-tag">RNN-Systems</span>
+            <span class="use-tag">Time-Series</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: EVOLUTION ===== -->
+    <section id="evolution">
+      <div class="section-head">
+        <span class="section-num">06</span>
+        <h2>Structural Evolution</h2>
+      </div>
+
+      <div class="evolution-track">
+        <div class="evo-stage">
+          <div class="evo-bar evo-bar-1"></div>
+          <div class="evo-num">STAGE 01</div>
+          <div class="evo-title">Linear Systems</div>
+          <div class="evo-desc">Basic single algebraic layers. Only solves linear problem arrays.</div>
+          <div class="evo-example">Perceptron</div>
+        </div>
+        <div class="evo-stage">
+          <div class="evo-bar evo-bar-2"></div>
+          <div class="evo-num">STAGE 02</div>
+          <div class="evo-title">Deep Stacks</div>
+          <div class="evo-desc">Hidden layers enable modeling non-linear spatial functions.</div>
+          <div class="evo-example">MLP / CNN</div>
+        </div>
+        <div class="evo-stage">
+          <div class="evo-bar evo-bar-3"></div>
+          <div class="evo-num">STAGE 03</div>
+          <div class="evo-title">Context Engines</div>
+          <div class="evo-desc">Dynamic attention routing unlocks massive sequence scale.</div>
+          <div class="evo-example">Transformers</div>
+        </div>
+        <div class="evo-stage">
+          <div class="evo-bar evo-bar-4"></div>
+          <div class="evo-num">STAGE 04</div>
+          <div class="evo-title">Autonomous Agents</div>
+          <div class="evo-desc">Self-correcting code execution and execution loops.</div>
+          <div class="evo-example">Agentic Nets</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-icon">⚠️</div>
+        <div>
+          <div class="callout-title">Critical System Architecture Warning</div>
+          <div class="callout-text">Over-parameterization without accurate regularizing factors (like dropout or weight decay) directly risks fatal validation overfitting. Always monitor validation matrices during runtime execution.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: RESOURCES & TIPS ===== -->
+    <section id="resources">
+      <div class="section-head">
+        <span class="section-num">07</span>
+        <h2>Engineering Assets</h2>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-num">01</div>
+          <div class="tip-text"><strong>Normalize All Inputs:</strong> Ensure raw numbers scale cleanly to a standard range of 0 to 1 to stabilize training runs.</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">02</div>
+          <div class="tip-text"><strong>Monitor the Gradient:</strong> Watch for vanishing gradients in deep chains. Use ReLU functions to preserve signals.</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">03</div>
+          <div class="tip-text"><strong>Shuffle Tensors:</strong> Always shuffle arrays completely before each epoch to prevent bias accumulation.</div>
+        </div>
+      </div>
+
+      <div class="resources-grid">
+        <a href="https://pytorch.org" class="res-card" target="_blank" rel="noopener">
+          <div class="res-name">PyTorch Framework</div>
+          <div class="res-desc">Dynamic tensor execution graphs designed for clean, imperative engineering workflows.</div>
+          <span class="res-tag">Library</span>
+        </a>
+        <a href="https://huggingface.co" class="res-card" target="_blank" rel="noopener">
+          <div class="res-name">Hugging Face Hub</div>
+          <div class="res-desc">Open platform hosting pre-trained transformer weight hubs and robust dataset pipelines.</div>
+          <span class="res-tag">Repository</span>
+        </a>
+        <a href="https://arxiv.org" class="res-card" target="_blank" rel="noopener">
+          <div class="res-name">arXiv Computer Science</div>
+          <div class="res-desc">Open-access database containing peer-reviewed scientific whitepapers and academic reviews.</div>
+          <span class="res-tag">Research</span>
+        </a>
+      </div>
+
+      <div class="tools-row">
+        <a href="#" class="tool-chip">NVIDIA CUDA Toolkit</a>
+        <a href="#" class="tool-chip">TensorBoard Graphing</a>
+        <a href="#" class="tool-chip">Jupyter Lab Env</a>
+        <a href="#" class="tool-chip">Docker Containers</a>
+        <a href="#" class="tool-chip">ONNX Runtimes</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-title">Architectures of Intelligence</div>
+        <div class="footer-sub">&copy; 2026 Core Documentation Engine. Explicitly licensed for open engineering deployment.</div>
+      </div>
+      <div class="footer-badge">
+        System Operational // Tier 1
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
