@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الذكاء الاصطناعي — الدليل الشامل</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0a0a0f;
+  --paper: #f5f2eb;
+  --accent: #c8381a;
+  --accent2: #1a4fc8;
+  --muted: #6b6860;
+  --border: #d4cfc4;
+  --card-bg: #ffffff;
+  --highlight: #fff3cd;
+  --green: #1a6b3a;
+  --mono: 'IBM Plex Mono', monospace;
+  --serif: 'Cairo', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--accent);
+}
+
+.header-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 40px;
+  padding: 60px 60px 50px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.header-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+header h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+header h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.header-sub {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  color: #a09e98;
+  font-weight: 300;
+  max-width: 550px;
+}
+
+.header-stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 200px;
+}
+
+.stat-item {
+  border: 1px solid #2a2a35;
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.stat-num {
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: #7a7870;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== NAV ===== */
+nav {
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 0 var(--border);
+}
+
+.nav-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+}
+
+nav a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 16px 20px;
+  border-left: 1px solid var(--border);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+nav a:last-child { border-right: 1px solid var(--border); }
+nav a:hover { background: var(--ink); color: var(--paper); }
+
+/* ===== MAIN LAYOUT ===== */
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.section-num {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--ink);
+  padding: 6px 12px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.section-head h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+/* ===== DEFINITION BLOCK ===== */
+.definition-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 50px;
+}
+
+.def-panel {
+  background: var(--card-bg);
+  padding: 36px 40px;
+}
+
+.def-panel.dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.def-panel h3 {
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.def-panel.dark h3 { color: var(--accent); }
+
+.def-panel p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #3a3830;
+}
+
+.def-panel.dark p { color: #c0bdb5; }
+
+/* ===== TIMELINE ===== */
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2px;
+  background: var(--border);
+  margin-bottom: 50px;
+}
+
+.tl-item {
+  background: var(--card-bg);
+  padding: 28px 32px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.tl-item:hover { background: var(--ink); color: var(--paper); }
+
+.tl-year {
+  font-family: var(--mono);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.tl-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+.tl-item:hover .tl-title { color: var(--paper); }
+
+.tl-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.tl-item:hover .tl-desc { color: #8a8880; }
+
+/* ===== COMPONENTS GRID ===== */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-bottom: 50px;
+}
+
+.comp-card {
+  background: var(--card-bg);
+  padding: 30px 28px;
+  position: relative;
+}
+
+.comp-icon {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.comp-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.comp-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.comp-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: right;
+}
+
+.comp-card:hover::after { transform: scaleX(1); }
+.comp-card:hover { background: #faf9f6; }
+
+/* ===== TYPES TABLE ===== */
+.types-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 50px;
+  border: 1px solid var(--border);
+}
+
+.types-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+.types-table thead tr {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.types-table th {
+  padding: 16px 24px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: right;
+}
+
+.types-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.types-table tr:last-child td { border-bottom: none; }
+.types-table tr:hover td { background: #f8f6f0; }
+
+.type-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.badge-exists { background: #d4edda; color: #1a6b3a; }
+.badge-theory { background: #fff3cd; color: #856404; }
+.badge-dev { background: #d1ecf1; color: #0c5460; }
+
+/* ===== STEPS ===== */
+.steps-list {
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--border);
+  margin-bottom: 50px;
+}
+
+.step-item {
+  background: var(--card-bg);
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: start;
+  gap: 32px;
+  padding: 30px 36px;
+  transition: background 0.2s;
+}
+
+.step-item:hover { background: var(--ink); }
+.step-item:hover .step-title { color: var(--paper); }
+.step-item:hover .step-desc { color: #8a8880; }
+.step-item:hover .step-tag { border-color: #3a3830; color: #8a8880; }
+
+.step-num {
+  font-family: var(--mono);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--border);
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.step-item:hover .step-num { color: #2a2a35; }
+
+.step-content { padding-top: 4px; }
+
+.step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  transition: color 0.2s;
+}
+
+.step-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 2px;
+  white-space: nowrap;
+  margin-top: 4px;
+  transition: all 0.2s;
+}
+
+/* ===== BRANCHES GRID ===== */
+.branches-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.branch-panel {
+  border: 1px solid var(--border);
+}
+
+.branch-header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.branch-header .icon { font-size: 1.5rem; }
+
+.branch-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.branch-body { padding: 24px 28px; }
+
+.branch-body p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.ml-types {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+}
+
+.ml-type-item {
+  background: #faf9f6;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  gap: 12px;
+}
+
+.ml-type-item span:first-child { font-weight: 600; color: var(--ink); }
+.ml-type-item span:last-child { font-size: 0.8rem; color: var(--muted); text-align: left; max-width: 200px; }
+
+/* ===== MODELS TABLE ===== */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-bottom: 50px;
+}
+
+.model-card {
+  background: var(--card-bg);
+  padding: 28px;
+}
+
+.model-name {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.model-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.model-uses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.use-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  background: #f0ede6;
+  color: #5a5850;
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== EVOLUTION TIMELINE ===== */
+.evolution-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-bottom: 50px;
+  border: 1px solid var(--border);
+}
+
+.evo-stage {
+  padding: 32px 28px;
+  border-left: 1px solid var(--border);
+  position: relative;
+}
+
+.evo-stage:first-child { border-left: none; }
+
+.evo-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.evo-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.evo-desc {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.evo-example {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent2);
+  background: #eef2ff;
+  padding: 4px 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.evo-bar {
+  height: 4px;
+  background: linear-gradient(to left, var(--accent), var(--accent2));
+  margin-bottom: 20px;
+}
+
+.evo-bar-1 { width: 25%; background: var(--accent); }
+.evo-bar-2 { width: 50%; background: linear-gradient(to left, var(--accent), #e87a1a); }
+.evo-bar-3 { width: 75%; background: linear-gradient(to left, var(--accent), var(--accent2)); }
+.evo-bar-4 { width: 100%; background: linear-gradient(to left, var(--accent2), var(--accent)); }
+
+/* ===== RESOURCES ===== */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-bottom: 20px;
+}
+
+.res-card {
+  background: var(--card-bg);
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: background 0.2s;
+  border-top: 3px solid transparent;
+}
+
+.res-card:hover {
+  background: var(--ink);
+  border-top-color: var(--accent);
+}
+
+.res-card:hover .res-name,
+.res-card:hover .res-desc { color: var(--paper); }
+.res-card:hover .res-tag { background: #2a2a35; color: #8a8880; }
+
+.res-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+
+.res-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  transition: color 0.2s;
+}
+
+.res-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  background: #f0ede6;
+  color: #6a6860;
+  padding: 4px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-top: 12px;
+  transition: all 0.2s;
+}
+
+/* ===== TIPS ===== */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-bottom: 50px;
+}
+
+.tip-card {
+  background: var(--card-bg);
+  padding: 28px;
+}
+
+.tip-num {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.tip-text {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.tip-text strong { color: var(--ink); }
+
+/* ===== TOOLS ===== */
+.tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+
+.tool-chip {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--card-bg);
+  transition: all 0.2s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.tool-chip:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ===== CALLOUT ===== */
+.callout {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 36px 40px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+  border-right: 5px solid var(--accent);
+}
+
+.callout-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.callout-title {
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.callout-text {
+  font-size: 0.95rem;
+  color: #c0bdb5;
+  line-height: 1.7;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 50px 60px;
+  margin-top: 60px;
+  border-top: 4px solid var(--accent);
+}
+
+.footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-sub {
+  font-size: 0.9rem;
+  color: #7a7870;
+}
+
+.footer-badge {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+  border: 1px solid #2a2a35;
+  padding: 12px 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 50px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .header-inner, .page, .footer-inner { padding-left: 30px; padding-right: 30px; }
+  .nav-inner { padding: 0 30px; }
+  .comp-grid { grid-template-columns: repeat(2, 1fr); }
+  .models-grid { grid-template-columns: repeat(2, 1fr); }
+  .tips-grid { grid-template-columns: repeat(2, 1fr); }
+  .resources-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .header-inner { grid-template-columns: 1fr; }
+  .header-stat-box { flex-direction: row; }
+  .definition-block { grid-template-columns: 1fr; }
+  .branches-wrap { grid-template-columns: 1fr; }
+  .evolution-track { grid-template-columns: repeat(2, 1fr); }
+  .comp-grid { grid-template-columns: 1fr 1fr; }
+  .models-grid { grid-template-columns: 1fr; }
+  .step-item { grid-template-columns: 60px 1fr; }
+  .step-tag { display: none; }
+  .tips-grid, .resources-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-noise"></div>
+  <div class="header-inner">
+    <div>
+      <span class="header-label">// دليل مرجعي شامل · 2025</span>
+      <h1>الذكاء<br>الاصطناعي<br><em>من الصفر</em></h1>
+      <p class="header-sub">مكوناته، أنواعه، فروعه، خطوات بنائه، ونماذجه — في دليل واحد متكامل</p>
+    </div>
+    <div class="header-stat-box">
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">أجيال من البوت للـ LLM</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">خطوات بناء النموذج</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">80+</div>
+        <div class="stat-label">سنة من تطور AI</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#intro">تعريف</a>
+    <a href="#history">التاريخ</a>
+    <a href="#components">المكونات</a>
+    <a href="#types">الأنواع</a>
+    <a href="#branches">الفروع</a>
+    <a href="#steps">خطوات البناء</a>
+    <a href="#models">النماذج</a>
+    <a href="#evolution">التطور</a>
+    <a href="#resources">المصادر</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ===== INTRO ===== -->
+  <section id="intro">
+    <div class="section-head">
+      <span class="section-num">01 · تعريف</span>
+      <h2>ما هو الذكاء الاصطناعي؟</h2>
+    </div>
+
+    <div class="definition-block">
+      <div class="def-panel dark">
+        <h3>التعريف الجوهري</h3>
+        <p>تقنية تحويلية تمكّن الآلات من أداء مهام تتطلب في الأصل ذكاءً بشرياً — كالتعرف على الأنماط، وفهم اللغة، واتخاذ القرارات، وحل المشكلات — بكفاءة وسرعة تفوق القدرات البشرية في سياقات محددة.</p>
+      </div>
+      <div class="def-panel">
+        <h3>الهدف الأساسي</h3>
+        <p>بناء أنظمة قادرة على التعلم من البيانات، واستخلاص أنماط مخفية، وتحسين أدائها تلقائياً دون برمجة صريحة لكل حالة جديدة.</p>
+      </div>
+      <div class="def-panel">
+        <h3>التطبيقات الفعلية اليوم</h3>
+        <p>السيارات ذاتية القيادة · المساعدات الصوتية · أنظمة التوصيات · التشخيص الطبي بالصور · الترجمة الفورية · توليد المحتوى · كشف الاحتيال المالي</p>
+      </div>
+      <div class="def-panel dark">
+        <h3>الفرق عن البرمجة التقليدية</h3>
+        <p>البرمجة التقليدية: القواعد + البيانات = النتائج. الذكاء الاصطناعي: البيانات + النتائج = القواعد. النظام يستنتج القواعد بنفسه من الأمثلة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HISTORY ===== -->
+  <section id="history">
+    <div class="section-head">
+      <span class="section-num">02 · التاريخ</span>
+      <h2>تطور الذكاء الاصطناعي</h2>
+    </div>
+
+    <div class="timeline-grid">
+      <div class="tl-item">
+        <div class="tl-year">1943</div>
+        <div class="tl-title">الخلايا العصبية الاصطناعية الأولى</div>
+        <div class="tl-desc">McCulloch و Pitts يضعان نموذج الخلية العصبية الرياضية — الأساس النظري للشبكات العصبية الحديثة.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1950</div>
+        <div class="tl-title">اختبار تورينج</div>
+        <div class="tl-desc">Alan Turing ينشر "Computing Machinery and Intelligence" ويطرح سؤاله الشهير: "هل تستطيع الآلات أن تفكر؟"</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1956</div>
+        <div class="tl-title">ولادة المصطلح الرسمية</div>
+        <div class="tl-desc">مؤتمر دارتماوث يرسّخ مصطلح "Artificial Intelligence" ويؤسس هذا المجال كتخصص علمي مستقل.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1966</div>
+        <div class="tl-title">ELIZA — أول بوت محادثة</div>
+        <div class="tl-desc">Weizenbaum يبني أول محادث آلي يحاكي معالجاً نفسياً عبر قواعد بسيطة. بداية واجهات الحوار البشري-الآلي.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1969–79</div>
+        <div class="tl-title">الشتاء الأول — جمود البحث</div>
+        <div class="tl-desc">قيود الحوسبة وضعف التمويل تُجمّد الأبحاث. Minsky يُثبت محدودية الشبكات العصبية البسيطة.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1980</div>
+        <div class="tl-title">الأنظمة الخبيرة</div>
+        <div class="tl-desc">MYCIN وغيرها تحاكي قرارات الخبراء البشريين. نهضة جديدة مدعومة بتمويل حكومي واسع.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1997</div>
+        <div class="tl-title">Deep Blue يهزم الإنسان</div>
+        <div class="tl-desc">حاسوب IBM يُلحق بالبطل العالمي Kasparov أول هزيمة تاريخية لإنسان أمام آلة في الشطرنج.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2012</div>
+        <div class="tl-title">ثورة التعلم العميق</div>
+        <div class="tl-desc">AlexNet تُحقق قفزة نوعية في التعرف على الصور. بداية هيمنة الشبكات العصبية العميقة على المجال.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2017</div>
+        <div class="tl-title">معمارية Transformer</div>
+        <div class="tl-desc">ورقة "Attention Is All You Need" تُحدث ثورة في NLP. الأساس التقني لكل نماذج اللغة الكبيرة الحديثة.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2022</div>
+        <div class="tl-title">ChatGPT وانتشار LLMs</div>
+        <div class="tl-desc">OpenAI تُطلق ChatGPT، يصل إلى 100 مليون مستخدم خلال شهرين. نقطة تحول في تبني AI عالمياً.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPONENTS ===== -->
+  <section id="components">
+    <div class="section-head">
+      <span class="section-num">03 · المكونات</span>
+      <h2>المكونات الأساسية لأي نظام AI</h2>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <span class="comp-icon">📊</span>
+        <h3>التعلم الآلي</h3>
+        <p>القدرة على التعلم من البيانات وتحسين الأداء تلقائياً. العمود الفقري لمعظم أنظمة AI الحديثة.</p>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">💬</span>
+        <h3>معالجة اللغة الطبيعية</h3>
+        <p>فهم وتوليد اللغة البشرية — الكتابة والكلام. تُمكّن الحوار الطبيعي بين الإنسان والآلة.</p>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">🔍</span>
+        <h3>الاستدلال المنطقي</h3>
+        <p>تطبيق القواعد المنطقية والاحتمالات لاستخلاص استنتاجات صحيحة من معطيات ناقصة.</p>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">🧮</span>
+        <h3>حل المشكلات</h3>
+        <p>الوصول لحلول عبر استكشاف فضاء الحلول الممكنة، من البحث الاستدلالي إلى التحسين الرياضي.</p>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">👁️</span>
+        <h3>الإدراك الحسي</h3>
+        <p>معالجة مدخلات العالم الحقيقي: صور، صوت، حركة، ولمس. يشمل رؤية الكمبيوتر والتعرف على الصوت.</p>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">📚</span>
+        <h3>تمثيل المعرفة</h3>
+        <p>تخزين المفاهيم والعلاقات بين الأشياء بصيغة يمكن للنظام استخدامها في التفكير واتخاذ القرار.</p>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">🤝</span>
+        <h3>التعلم التعزيزي</h3>
+        <p>التعلم من خلال التفاعل مع البيئة — الثواب والعقاب. يُستخدم لتدريب أنظمة الألعاب والروبوتات.</p>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">🔗</span>
+        <h3>التخطيط واتخاذ القرار</h3>
+        <p>بناء خطط متعددة الخطوات لتحقيق أهداف بعيدة المدى في بيئات ديناميكية وغير مؤكدة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TYPES ===== -->
+  <section id="types">
+    <div class="section-head">
+      <span class="section-num">04 · الأنواع</span>
+      <h2>تصنيفات الذكاء الاصطناعي</h2>
+    </div>
+
+    <h3 style="font-size:1rem; font-family:var(--mono); letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom:16px;">تصنيف حسب القدرات</h3>
+    <div class="types-table-wrap">
+      <table class="types-table">
+        <thead>
+          <tr>
+            <th>النوع</th>
+            <th>الوصف</th>
+            <th>الحالة</th>
+            <th>أمثلة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>الذكاء الضيق · ANI</strong></td>
+            <td>مصمم لمهمة واحدة محددة. لا يعمم معرفته خارج نطاقها. الوحيد الموجود فعلياً.</td>
+            <td><span class="type-badge badge-exists">موجود</span></td>
+            <td>Siri · ChatGPT · AlphaGo · فلاتر الصور</td>
+          </tr>
+          <tr>
+            <td><strong>الذكاء العام · AGI</strong></td>
+            <td>ذكاء مرن يستطيع التعلم وأداء أي مهمة فكرية بشرية دون تدريب مسبق لكل مهمة.</td>
+            <td><span class="type-badge badge-theory">نظري</span></td>
+            <td>لم يتحقق — جدل علمي حول تاريخ تحققه</td>
+          </tr>
+          <tr>
+            <td><strong>الذكاء الفائق · ASI</strong></td>
+            <td>يتجاوز الذكاء البشري في كل المجالات. يُثير نقاشات أخلاقية وفلسفية واسعة.</td>
+            <td><span class="type-badge badge-theory">نظري</span></td>
+            <td>مفهوم مستقبلي — المخاوف تُناقشها هيئات عالمية</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:1rem; font-family:var(--mono); letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin:40px 0 16px;">تصنيف حسب الوظيفة والذاكرة</h3>
+    <div class="types-table-wrap">
+      <table class="types-table">
+        <thead>
+          <tr>
+            <th>النوع</th>
+            <th>الذاكرة</th>
+            <th>الوصف</th>
+            <th>أمثلة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>الآلات التفاعلية</strong></td>
+            <td>لا ذاكرة</td>
+            <td>تستجيب للمدخلات الآنية دون أي سياق سابق. تعتمد على الإحصاء البحت.</td>
+            <td>Deep Blue · محرك توصيات Netflix البدائي</td>
+          </tr>
+          <tr>
+            <td><strong>الذاكرة المحدودة</strong></td>
+            <td>مؤقتة</td>
+            <td>تستخدم بيانات حديثة لتحسين القرار. تنسى بعد انتهاء الجلسة أو الحدث.</td>
+            <td>ChatGPT · السيارات ذاتية القيادة · المساعدات الصوتية</td>
+          </tr>
+          <tr>
+            <td><strong>نظرية العقل</strong></td>
+            <td>ديناميكية</td>
+            <td>تفهم أفكار ومشاعر الآخرين وتستجيب لها. قيد البحث والتطوير.</td>
+            <td><span class="type-badge badge-dev">قيد التطوير</span></td>
+          </tr>
+          <tr>
+            <td><strong>الوعي الذاتي</strong></td>
+            <td>كاملة</td>
+            <td>تمتلك وعياً بنفسها وبيئتها وحالاتها الداخلية. المرحلة الأبعد نظرياً.</td>
+            <td><span class="type-badge badge-theory">نظري بحت</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== BRANCHES ===== -->
+  <section id="branches">
+    <div class="section-head">
+      <span class="section-num">05 · الفروع</span>
+      <h2>فروع الذكاء الاصطناعي</h2>
+    </div>
+
+    <div class="branches-wrap">
+      <div class="branch-panel">
+        <div class="branch-header">
+          <span class="icon">📈</span>
+          <h3>التعلم الآلي — Machine Learning</h3>
+        </div>
+        <div class="branch-body">
+          <p>يجعل الآلات تتعلم من البيانات وتحسين أدائها تلقائياً. ينقسم إلى أربعة أساليب رئيسية:</p>
+          <div class="ml-types">
+            <div class="ml-type-item">
+              <span>التعلم الخاضع للإشراف</span>
+              <span>بيانات مصنفة → تنبؤ بمخرجات جديدة</span>
+            </div>
+            <div class="ml-type-item">
+              <span>التعلم غير الخاضع للإشراف</span>
+              <span>بيانات غير مصنفة → اكتشاف الأنماط</span>
+            </div>
+            <div class="ml-type-item">
+              <span>التعلم شبه الخاضع للإشراف</span>
+              <span>مزيج: بيانات مصنفة + غير مصنفة</span>
+            </div>
+            <div class="ml-type-item">
+              <span>التعلم المعزز</span>
+              <span>ثواب وعقاب → تحسين السياسة</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-panel">
+        <div class="branch-header">
+          <span class="icon">🧠</span>
+          <h3>التعلم العميق — Deep Learning</h3>
+        </div>
+        <div class="branch-body">
+          <p>شبكات عصبية بطبقات عميقة تحاكي بنية الدماغ. تحتاج كميات ضخمة من البيانات وقدرة حوسبة عالية.</p>
+          <div class="ml-types">
+            <div class="ml-type-item">
+              <span>CNN — الشبكات الالتفافية</span>
+              <span>رؤية الكمبيوتر · تحليل الصور</span>
+            </div>
+            <div class="ml-type-item">
+              <span>RNN — الشبكات المتكررة</span>
+              <span>التسلسلات الزمنية · النصوص</span>
+            </div>
+            <div class="ml-type-item">
+              <span>Transformer</span>
+              <span>النماذج اللغوية الكبيرة · GPT</span>
+            </div>
+            <div class="ml-type-item">
+              <span>GAN — الشبكات التوليدية التعاكسية</span>
+              <span>توليد الصور · DeepFake</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-panel">
+        <div class="branch-header">
+          <span class="icon">💬</span>
+          <h3>معالجة اللغة الطبيعية — NLP</h3>
+        </div>
+        <div class="branch-body">
+          <p>تمكين الآلات من فهم وإنتاج اللغة البشرية بكل تعقيداتها الدلالية والسياقية.</p>
+          <div class="ml-types">
+            <div class="ml-type-item">
+              <span>Tokenization</span>
+              <span>تحليل النص إلى وحدات أساسية</span>
+            </div>
+            <div class="ml-type-item">
+              <span>Word Embeddings</span>
+              <span>تمثيل الكلمات في فضاء متجهات</span>
+            </div>
+            <div class="ml-type-item">
+              <span>Sentiment Analysis</span>
+              <span>كشف المشاعر والآراء في النصوص</span>
+            </div>
+            <div class="ml-type-item">
+              <span>Text Generation</span>
+              <span>توليد نصوص طبيعية سياقية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="branch-panel">
+        <div class="branch-header">
+          <span class="icon">👁️</span>
+          <h3>رؤية الكمبيوتر — Computer Vision</h3>
+        </div>
+        <div class="branch-body">
+          <p>تمكين الآلات من فهم وتفسير العالم البصري من صور وفيديو بدقة تضاهي أو تتجاوز الإنسان.</p>
+          <div class="ml-types">
+            <div class="ml-type-item">
+              <span>Image Classification</span>
+              <span>تصنيف محتوى الصورة</span>
+            </div>
+            <div class="ml-type-item">
+              <span>Object Detection</span>
+              <span>تحديد الكائنات وأماكنها</span>
+            </div>
+            <div class="ml-type-item">
+              <span>Semantic Segmentation</span>
+              <span>تقسيم الصورة دلالياً بالكامل</span>
+            </div>
+            <div class="ml-type-item">
+              <span>Face Recognition</span>
+              <span>التعرف على هوية الوجوه</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STEPS ===== -->
+  <section id="steps">
+    <div class="section-head">
+      <span class="section-num">06 · خطوات البناء</span>
+      <h2>كيف تبني نظام ذكاء اصطناعي؟</h2>
+    </div>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">تحديد المشكلة وتأطيرها</div>
+          <div class="step-desc">اسأل: ما المشكلة المحددة التي تريد حلها؟ هل هي مسألة تصنيف، توقع، توصية، أو توليد محتوى؟ صِغ الأهداف بمقاييس قابلة للقياس (مثال: دقة 95% في تصنيف البريد العشوائي).</div>
+        </div>
+        <div class="step-tag">Problem Framing</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">جمع البيانات وتنظيفها</div>
+          <div class="step-desc">البيانات شريان الحياة لأي نموذج. جمعها من مصادر متنوعة، ثم تنظيفها: معالجة القيم المفقودة، إزالة التكرار، تصحيح الأخطاء، ومعالجة التحيزات. البيانات السيئة = نموذج سيئ دائماً.</div>
+        </div>
+        <div class="step-tag">Data Engineering</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">استكشاف البيانات وتصورها</div>
+          <div class="step-desc">فهم توزيع البيانات، العلاقات بين المتغيرات، الأنماط الخفية، والشذوذات (Outliers) قبل بناء أي نموذج. أدوات: Pandas Profiling، Matplotlib، Seaborn.</div>
+        </div>
+        <div class="step-tag">EDA</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">هندسة المميزات واختيار النموذج</div>
+          <div class="step-desc">تحويل البيانات الخام إلى مميزات ذات معنى للنموذج. ثم اختيار الخوارزمية المناسبة: هل تحتاج Decision Tree لقابلية التفسير؟ أم Gradient Boosting للدقة؟ أم شبكة عصبية عميقة للبيانات غير المنظمة؟</div>
+        </div>
+        <div class="step-tag">Feature Engineering</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <div class="step-title">تدريب النموذج وضبط المعاملات</div>
+          <div class="step-desc">تقسيم البيانات: 70% تدريب، 15% تحقق، 15% اختبار. تدريب النموذج وضبط المعاملات الفائقة (Hyperparameters) باستخدام Cross-Validation. مراقبة منحنيات التعلم لكشف Overfitting أو Underfitting.</div>
+        </div>
+        <div class="step-tag">Model Training</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">06</div>
+        <div class="step-content">
+          <div class="step-title">التقييم والتحسين</div>
+          <div class="step-desc">قياس الأداء بمقاييس تناسب المشكلة: Accuracy للتصنيف المتوازن، F1-Score للبيانات غير المتوازنة، RMSE للتنبؤ، BLEU للنماذج اللغوية. إن كانت النتائج غير كافية → عُد للخطوة 2 أو 4.</div>
+        </div>
+        <div class="step-tag">Evaluation</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">07</div>
+        <div class="step-content">
+          <div class="step-title">النشر والمراقبة المستمرة</div>
+          <div class="step-desc">نشر النموذج كـ API أو دمجه في التطبيق. مراقبة انجراف البيانات (Data Drift) وتدهور الأداء عبر الزمن. إعداد خطة لإعادة التدريب الدوري.</div>
+        </div>
+        <div class="step-tag">MLOps</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-icon">⚠️</span>
+      <div>
+        <div class="callout-title">المخطئ الأكثر شيوعاً للمبتدئين</div>
+        <div class="callout-text">التركيز على اختيار النموذج المعقد بدلاً من جودة البيانات. في الواقع، بيانات نظيفة مع نموذج بسيط تتفوق على بيانات رديئة مع أعقد نموذج. أمضِ 60-70% من وقتك في الخطوتين الأولى والثانية.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODELS ===== -->
+  <section id="models">
+    <div class="section-head">
+      <span class="section-num">07 · النماذج</span>
+      <h2>خوارزميات التعلم الآلي الأساسية</h2>
+    </div>
+
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="model-name">Linear Regression</div>
+        <div class="model-desc">يجد العلاقة الخطية بين المتغيرات. سريع وقابل للتفسير. مناسب حين تكون العلاقة بين المدخلات والمخرجات خطية فعلاً.</div>
+        <div class="model-uses">
+          <span class="use-tag">التنبؤ الرقمي</span>
+          <span class="use-tag">الخدمات المالية</span>
+          <span class="use-tag">أسعار العقارات</span>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-name">Logistic Regression</div>
+        <div class="model-desc">يتنبأ باحتمالية الانتماء لفئة معينة. يُخرج قيماً بين 0 و1. الأساس في كثير من مهام التصنيف الثنائي.</div>
+        <div class="model-uses">
+          <span class="use-tag">كشف الاحتيال</span>
+          <span class="use-tag">فلترة البريد</span>
+          <span class="use-tag">التشخيص الطبي</span>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-name">Decision Tree</div>
+        <div class="model-desc">يتخذ قرارات عبر سلسلة من الأسئلة المتفرعة. مرئي وقابل للتفسير بسهولة. ميّال للـ Overfitting بدون تقليم.</div>
+        <div class="model-uses">
+          <span class="use-tag">التصنيف</span>
+          <span class="use-tag">قرارات الائتمان</span>
+          <span class="use-tag">قواعد الأعمال</span>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-name">Random Forest</div>
+        <div class="model-desc">غابة من أشجار القرار تصوّت مجتمعةً. أقوى وأكثر استقراراً من شجرة واحدة. يتحمل البيانات المفقودة والتحيزات.</div>
+        <div class="model-uses">
+          <span class="use-tag">التصنيف</span>
+          <span class="use-tag">الانحدار</span>
+          <span class="use-tag">أهمية المتغيرات</span>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-name">Gradient Boosting · XGBoost</div>
+        <div class="model-desc">يبني نماذج ضعيفة متتالية كل منها يصحح أخطاء السابق. أداء عالٍ جداً على البيانات الجدولية. كثير الاستخدام في مسابقات Kaggle.</div>
+        <div class="model-uses">
+          <span class="use-tag">بيانات جدولية</span>
+          <span class="use-tag">توقع المبيعات</span>
+          <span class="use-tag">النقر الإعلاني</span>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-name">Neural Networks · Deep Learning</div>
+        <div class="model-desc">طبقات من العقد المترابطة تتعلم تمثيلات هرمية للبيانات. لا مثيل لها في الصور، الصوت، واللغة. تحتاج بيانات وحوسبة ضخمتين.</div>
+        <div class="model-uses">
+          <span class="use-tag">رؤية الكمبيوتر</span>
+          <span class="use-tag">NLP</span>
+          <span class="use-tag">توليد المحتوى</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EVOLUTION ===== -->
+  <section id="evolution">
+    <div class="section-head">
+      <span class="section-num">08 · التطور</span>
+      <h2>من بوت بسيط إلى نموذج لغوي كبير</h2>
+    </div>
+
+    <div class="evolution-track">
+      <div class="evo-stage">
+        <div class="evo-bar evo-bar-1"></div>
+        <div class="evo-num">// المرحلة 01</div>
+        <div class="evo-title">البوت القائم على القواعد</div>
+        <div class="evo-desc">يعمل بعبارات if/else. يتبع مسارات محددة مسبقاً. لا يتعلم ولا يتكيف. سريع ومتنبؤ بسلوكه.</div>
+        <span class="evo-example">ELIZA · 1966</span>
+      </div>
+      <div class="evo-stage">
+        <div class="evo-bar evo-bar-2"></div>
+        <div class="evo-num">// المرحلة 02</div>
+        <div class="evo-title">البوت القائم على التعلم الآلي</div>
+        <div class="evo-desc">يستخدم خوارزميات ML لفهم أنماط اللغة. يتحسن مع تراكم البيانات. يتعامل مع تنوع أكبر.</div>
+        <span class="evo-example">Rasa · DialogFlow</span>
+      </div>
+      <div class="evo-stage">
+        <div class="evo-bar evo-bar-3"></div>
+        <div class="evo-num">// المرحلة 03</div>
+        <div class="evo-title">المساعد الذكي (NLP + DL)</div>
+        <div class="evo-desc">يدمج التعلم العميق ومعالجة اللغة. يفهم السياق داخل الجلسة. يتعرف على النية والأفكار.</div>
+        <span class="evo-example">Siri · Alexa · Google</span>
+      </div>
+      <div class="evo-stage">
+        <div class="evo-bar evo-bar-4"></div>
+        <div class="evo-num">// المرحلة 04</div>
+        <div class="evo-title">النماذج اللغوية الكبيرة (LLMs)</div>
+        <div class="evo-desc">مئات المليارات من المعاملات. سياق طويل. استدلال وإبداع وكتابة كود. يتعلم من تعليقات البشر (RLHF).</div>
+        <span class="evo-example">GPT-4 · Claude · Gemini</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESOURCES ===== -->
+  <section id="resources">
+    <div class="section-head">
+      <span class="section-num">09 · المصادر</span>
+      <h2>مصادر التعلم والأدوات</h2>
+    </div>
+
+    <h3 style="font-size:0.78rem; font-family:var(--mono); letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom:16px;">منصات التعلم الموصى بها</h3>
+    <div class="resources-grid" style="margin-bottom:40px;">
+      <a href="https://www.coursera.org/specializations/machine-learning-introduction" class="res-card" target="_blank">
+        <div class="res-name">Coursera — ML Specialization</div>
+        <div class="res-desc">دورة Andrew Ng الشهيرة في التعلم الآلي. الأفضل للمبتدئين من جامعة Stanford.</div>
+        <span class="res-tag">مدفوع · شهادة</span>
+      </a>
+      <a href="https://www.fast.ai/" class="res-card" target="_blank">
+        <div class="res-name">fast.ai</div>
+        <div class="res-desc">نهج من الأسفل إلى الأعلى. تبدأ بالكود قبل النظرية. مجاني ومبني على PyTorch.</div>
+        <span class="res-tag">مجاني · عملي</span>
+      </a>
+      <a href="https://www.deeplearning.ai/" class="res-card" target="_blank">
+        <div class="res-name">DeepLearning.AI</div>
+        <div class="res-desc">تخصصات متقدمة في التعلم العميق، NLP، وMLOps. مناسب للانتقال من مبتدئ لمحترف.</div>
+        <span class="res-tag">مدفوع · شامل</span>
+      </a>
+      <a href="https://huggingface.co/learn" class="res-card" target="_blank">
+        <div class="res-name">Hugging Face — NLP Course</div>
+        <div class="res-desc">الدورة الأكثر شمولاً في Transformers والنماذج اللغوية. مجانية بالكامل.</div>
+        <span class="res-tag">مجاني · متقدم</span>
+      </a>
+      <a href="https://kaggle.com/learn" class="res-card" target="_blank">
+        <div class="res-name">Kaggle Learn</div>
+        <div class="res-desc">دروس قصيرة عملية مع مسابقات حقيقية. المكان الأفضل لتطبيق المهارات.</div>
+        <span class="res-tag">مجاني · تطبيقي</span>
+      </a>
+      <a href="https://cs231n.stanford.edu/" class="res-card" target="_blank">
+        <div class="res-name">Stanford CS231n</div>
+        <div class="res-desc">الدورة الأكاديمية المرجعية في الشبكات العصبية ورؤية الكمبيوتر. متاحة مجاناً.</div>
+        <span class="res-tag">أكاديمي · متقدم</span>
+      </a>
+    </div>
+
+    <h3 style="font-size:0.78rem; font-family:var(--mono); letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom:16px;">المكتبات والأطر الأساسية</h3>
+    <div class="tools-row">
+      <a href="https://pytorch.org/" class="tool-chip" target="_blank">PyTorch</a>
+      <a href="https://www.tensorflow.org/" class="tool-chip" target="_blank">TensorFlow</a>
+      <a href="https://scikit-learn.org/" class="tool-chip" target="_blank">Scikit-learn</a>
+      <a href="https://huggingface.co/" class="tool-chip" target="_blank">Hugging Face</a>
+      <a href="https://keras.io/" class="tool-chip" target="_blank">Keras</a>
+      <a href="https://xgboost.readthedocs.io/" class="tool-chip" target="_blank">XGBoost</a>
+      <a href="https://opencv.org/" class="tool-chip" target="_blank">OpenCV</a>
+      <a href="https://numpy.org/" class="tool-chip" target="_blank">NumPy</a>
+      <a href="https://pandas.pydata.org/" class="tool-chip" target="_blank">Pandas</a>
+      <a href="https://matplotlib.org/" class="tool-chip" target="_blank">Matplotlib</a>
+      <a href="https://langchain.com/" class="tool-chip" target="_blank">LangChain</a>
+      <a href="https://ollama.com/" class="tool-chip" target="_blank">Ollama</a>
+    </div>
+
+    <h3 style="font-size:0.78rem; font-family:var(--mono); letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin:40px 0 16px;">نصائح للمسار الصحيح</h3>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <div class="tip-text"><strong>أتقن الأسس أولاً:</strong> الجبر الخطي، الاحتمالات، الإحصاء الاستدلالي، ومشتقات حساب التفاضل. هذه ليست اختيارية.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <div class="tip-text"><strong>Python هي لغتك:</strong> أتقن NumPy وPandas وMatplotlib قبل أي إطار AI. كل شيء آخر يبنى عليها.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <div class="tip-text"><strong>ابنِ مشاريع حقيقية:</strong> كل مفهوم تتعلمه طبّقه فوراً. مشروع واحد عملي أفيد من عشرة دروس نظرية.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <div class="tip-text"><strong>نافس في Kaggle:</strong> المسابقات تعلمك التعامل مع البيانات الحقيقية والمشكلات التي لا يغطيها الكتاب المدرسي.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <div class="tip-text"><strong>اقرأ الأوراق البحثية:</strong> arXiv.org يحوي أحدث الأبحاث مجاناً. ابدأ بملخصات "Papers with Code" إن كانت الأوراق الكاملة مرهقة.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <div class="tip-text"><strong>فهم لا حفظ:</strong> لا تكتفِ بمعرفة كيف تستخدم النموذج — افهم لماذا يعمل، متى يفشل، وأين حدوده.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-title">الذكاء الاصطناعي — الدليل الشامل</div>
+      <div class="footer-sub">دليل مرجعي متكامل لفهم وبناء أنظمة الذكاء الاصطناعي من الصفر حتى النشر</div>
+    </div>
+    <div class="footer-badge">
+      دليل مفتوح<br>للجميع ✦ 2025
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
